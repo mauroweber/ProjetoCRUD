@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>CRUD</title>
+</head>
+<body>
+    
+    <h1>CADASTRO DE CLIENTE</h1>
+
+    <form id="formRegister">
+        <div id="register">
+
+            Nome Completo: <input id="nome" type="text"name="nome"> Cidade: <input  id="cidade" type="text" name="cidade"> Telefone: <input id="telefone" type="text" name="telefone"> <button type="submit" id="addCliente">Adicionar Cliente</button>
+
+        </div>
+    </form>
+
+    <br><br><br><br>
+
+    <table id="tabelaCliente">
+
+        <thead>
+            <tr>
+                <th>Seleção</th>
+                <th>Nome</th>
+                <th>Cidade</th>
+                <th>Telefone</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <div id="button">
+        <button type="submit" id="btnTarefas">Tarefas concluidas</button><button type="submit" id="btnLimpar">Limpar Tarefas</button>
+    </div>
+
+   <script type="text/javascript">
+
+    let addClient = document.querySelector("#addCliente")
+    
+    addClient.addEventListener('click',(event)=>{
+        event.preventDefault();
+
+
+        let formulario = document.querySelector("#formRegister")
+        let cliente = obterDadosFormulario(formulario)
+
+        let tableCliente = document.querySelector("#tabelaCliente")
+       
+        let trCliente = document.createElement("tr")
+        let tdCheck = document.createElement("td")
+        let tdNome = document.createElement("td")
+        let tdCidade = document.createElement("td")
+        let tdTelefone = document.createElement("td")        
+
+        tdCheck.innerHTML = "<input type='checkbox'>"
+        tdNome.innerHTML = cliente.nome
+        tdCidade.innerHTML = cliente.cidade
+        tdTelefone.innerHTML = cliente.telefone
+
+        trCliente.className = "cliente"
+        tdCheck.className = "check"
+        tdNome.className = "nome"
+        tdCidade.className = "cidade"
+        tdTelefone.className = "telefone"       
+
+        trCliente.appendChild(tdCheck)
+        trCliente.appendChild(tdNome)
+        trCliente.appendChild(tdCidade)
+        trCliente.appendChild(tdTelefone)
+        tableCliente.querySelector("tbody").appendChild(trCliente)
+        
+        limparFormulario();
+
+        let checkbox = document.querySelector("#check")
+        console.log(checkbox)
+        
+       
+    })
+   
+    function obterDadosFormulario(formulario){
+
+        cliente = {
+            nome : formulario.nome.value,
+            cidade : formulario.cidade.value,
+            telefone : formulario.telefone.value,
+        }
+
+        return cliente
+
+    }
+   
+    function limparFormulario(){
+   
+        document.getElementById('nome').value = "";
+        document.getElementById('cidade').value = "";
+        document.getElementById('telefone').value = "";
+
+    }
+
+
+
+   </script>
+</body>
+</html>

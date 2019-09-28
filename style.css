@@ -1,0 +1,40 @@
+h1{
+
+  text-align: center;
+  color: rgba(0, 0, 0, .50)  
+
+}
+
+#register{
+    text-align: center;
+}
+
+#tabelaCliente{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tabelaCliente td, #tabelaCliente th{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tabelaCliente tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+#tabelaCliente tr:hover{
+    background-color: #ddd;
+}
+
+#tabelaCliente th{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+   }
+
+   #button{
+       margin-top: 50px;
+        text-align: center;
+   }

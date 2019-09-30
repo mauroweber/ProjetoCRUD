@@ -39,13 +39,16 @@
     <div id="button">
         <button type="submit" id="btnTarefas">Tarefas concluidas</button><button type="submit" id="btnLimpar">Limpar Tarefas</button>
     </div>
-
+    <p>
+        <input type="checkbox" id="selTeste"> Marcar 
+    </p>
     <p>Copirigth</p>
 
    <script type="text/javascript">
 
+
     let addClient = document.querySelector("#addCliente")
-    
+        
     addClient.addEventListener('click',(event)=>{
         event.preventDefault();
 
@@ -61,7 +64,7 @@
         let tdCidade = document.createElement("td")
         let tdTelefone = document.createElement("td")        
 
-        tdCheck.innerHTML = "<input type='checkbox'>"
+        tdCheck.innerHTML = "<input type='checkbox' id='select'>"
         tdNome.innerHTML = cliente.nome
         tdCidade.innerHTML = cliente.cidade
         tdTelefone.innerHTML = cliente.telefone
@@ -80,10 +83,15 @@
         
         limparFormulario();
 
-        let checkbox = document.querySelector("#check")
-        console.log(checkbox)
-        
-       
+        var sublinharTexto = document.getElementById("select")
+
+        sublinharTexto.addEventListener('click',(event) => {
+            event.preventDefault();
+            
+            
+
+        })
+           
     })
    
     function obterDadosFormulario(formulario){
@@ -105,8 +113,11 @@
         document.getElementById('telefone').value = "";
 
     }
+    
+    let selTeste = document.getElementById('selTeste')
+    
 
-
+    
 
    </script>
 </body>

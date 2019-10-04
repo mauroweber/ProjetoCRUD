@@ -64,7 +64,7 @@
         let tdCidade = document.createElement("td")
         let tdTelefone = document.createElement("td")        
 
-        tdCheck.innerHTML = "<input type='checkbox' id='select'>"
+        tdCheck.innerHTML = "<input type='checkbox' id='select' onclick='sublinharNome(this)'>"
         tdNome.innerHTML = cliente.nome
         tdCidade.innerHTML = cliente.cidade
         tdTelefone.innerHTML = cliente.telefone
@@ -82,16 +82,7 @@
         tableCliente.querySelector("tbody").appendChild(trCliente)
         
         limparFormulario();
-
-        var sublinharTexto = document.getElementById("select")
-
-        sublinharTexto.addEventListener('click',(event) => {
-            event.preventDefault();
-            
-            
-
-        })
-           
+   
     })
    
     function obterDadosFormulario(formulario){
@@ -114,10 +105,15 @@
 
     }
     
-    let selTeste = document.getElementById('selTeste')
+    function sublinharNome(){
+        
+        let selNome = document.querySelector('.nome')
+        console.log(selNome.innerHTML)
+        selNome.innerHTML = "<s>" + selNome.innerHTML +"</s>"
+        
+    }
     
 
-    
 
    </script>
 </body>

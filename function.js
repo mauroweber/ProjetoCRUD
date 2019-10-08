@@ -1,7 +1,11 @@
+//pega o elemento para criar o novo cliente
 let addClient = document.querySelector("#addCliente")
-
+//pega o elemento para tarjar o nome do cliente
 let chkSublinhar = document.querySelector("#tabelaCliente")
+//pega o elemento para remover o cliente
 let fnRemover = document.querySelector("#tabelaCliente")
+//pega o elemento para limpar cadastro
+let clearCadastro = document.querySelector("#btnLimpar")
     
     addClient.addEventListener('click',(event)=>{
         event.preventDefault();
@@ -73,16 +77,20 @@ let fnRemover = document.querySelector("#tabelaCliente")
             
         }
 
-        console.log(event.target.nodeName)
     })
 
     fnRemover.addEventListener("click", (event)=>{
 
-        if(event.target == td.imagem){
-            console.log("TESTANDO");
+        if(event.target.className == "imagem"){
+        event.target.parentNode.remove();
         }
 
-        console.log(event.target);
+    clearCadastro.addEventListener("click",(event)=>{
+        event.preventDefault();
         
-               
+        console.log("Testando");
+        
+            
+    })
+              
     })

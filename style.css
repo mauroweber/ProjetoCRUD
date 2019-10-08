@@ -5,6 +5,19 @@ h1{
 
 }
 
+#riscaNome{
+
+    text-decoration: line-through;
+
+}
+
+.imagem{
+
+    background: url(icons8-lixo-26.png) no-repeat;
+    background-position: center;
+    
+}
+
 #register{
     text-align: center;
 }

@@ -29,6 +29,7 @@
                 <th>Nome</th>
                 <th>Cidade</th>
                 <th>Telefone</th>
+                <th>Remover</th>
             </tr>
         </thead>
         <tbody>
@@ -39,82 +40,9 @@
     <div id="button">
         <button type="submit" id="btnTarefas">Tarefas concluidas</button><button type="submit" id="btnLimpar">Limpar Tarefas</button>
     </div>
-    <p>
-        <input type="checkbox" id="selTeste"> Marcar 
-    </p>
+
     <p>Copirigth</p>
 
-   <script type="text/javascript">
-
-
-    let addClient = document.querySelector("#addCliente")
-        
-    addClient.addEventListener('click',(event)=>{
-        event.preventDefault();
-
-
-        let formulario = document.querySelector("#formRegister")
-        let cliente = obterDadosFormulario(formulario)
-
-        let tableCliente = document.querySelector("#tabelaCliente")
-       
-        let trCliente = document.createElement("tr")
-        let tdCheck = document.createElement("td")
-        let tdNome = document.createElement("td")
-        let tdCidade = document.createElement("td")
-        let tdTelefone = document.createElement("td")        
-
-        tdCheck.innerHTML = "<input type='checkbox' id='select' onclick='sublinharNome(this)'>"
-        tdNome.innerHTML = cliente.nome
-        tdCidade.innerHTML = cliente.cidade
-        tdTelefone.innerHTML = cliente.telefone
-
-        trCliente.className = "cliente"
-        tdCheck.className = "check"
-        tdNome.className = "nome"
-        tdCidade.className = "cidade"
-        tdTelefone.className = "telefone"       
-
-        trCliente.appendChild(tdCheck)
-        trCliente.appendChild(tdNome)
-        trCliente.appendChild(tdCidade)
-        trCliente.appendChild(tdTelefone)
-        tableCliente.querySelector("tbody").appendChild(trCliente)
-        
-        limparFormulario();
-   
-    })
-   
-    function obterDadosFormulario(formulario){
-
-        cliente = {
-            nome : formulario.nome.value,
-            cidade : formulario.cidade.value,
-            telefone : formulario.telefone.value,
-        }
-
-        return cliente
-
-    }
-   
-    function limparFormulario(){
-   
-        document.getElementById('nome').value = "";
-        document.getElementById('cidade').value = "";
-        document.getElementById('telefone').value = "";
-
-    }
-    
-    function sublinharNome(){
-        
-        let selNome = document.querySelector('.nome')
-        console.log(selNome.innerHTML)
-        selNome.innerHTML = "<s>" + selNome.innerHTML +"</s>"
-        
-    }
-    
-
-
-   </script>
+   <script type="text/javascript" src="function.js"></script>
 </body>
 </html>

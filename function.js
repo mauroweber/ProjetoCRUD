@@ -6,6 +6,8 @@ let chkSublinhar = document.querySelector("#tabelaCliente")
 let fnRemover = document.querySelector("#tabelaCliente")
 //pega o elemento para limpar cadastro
 let clearCadastro = document.querySelector("#btnLimpar")
+//pega o elemento para ver a quantidade de itens cadastrado
+let qtdeCadastro = document.querySelector("#btnTarefas")
     
     addClient.addEventListener('click',(event)=>{
         event.preventDefault();
@@ -43,11 +45,10 @@ let clearCadastro = document.querySelector("#btnLimpar")
         tableCliente.querySelector("tbody").appendChild(trCliente)
         
         limparFormulario();
-
-        document.querySelector(".cliente").id = "remover"
     
     })
    
+    //cria um objeto literal de um cliente
     function obterDadosFormulario(formulario){
 
         cliente = {
@@ -60,37 +61,47 @@ let clearCadastro = document.querySelector("#btnLimpar")
 
     }
    
+    //limpa o formulario após o cadastro
     function limparFormulario(){
    
-        document.getElementById('nome').value = "";
-        document.getElementById('cidade').value = "";
-        document.getElementById('telefone').value = "";
+        document.getElementById("nome").value = "";
+        document.getElementById("cidade").value = "";
+        document.getElementById("telefone").value = "";
 
     }
 
+    //tarja o nome da pessoa ao clicar no checkbox
     chkSublinhar.addEventListener("click", (event)=>{
 
         if(event.target.nodeName == "INPUT"){
 
-            event.target.parentNode.parentNode.querySelector(".nome").id = "riscaNome"
-            console.log(event.target);            
+            event.target.parentNode.parentNode.querySelector(".nome").id = "riscaNome"          
             
         }
 
     })
 
+    //remova a linha ao clicar no botão de deletar
     fnRemover.addEventListener("click", (event)=>{
 
         if(event.target.className == "imagem"){
         event.target.parentNode.remove();
         }
 
-    clearCadastro.addEventListener("click",(event)=>{
-        event.preventDefault();
-        
-        console.log("Testando");
-        
-            
     })
-              
+
+    //limpa toda lista de cadastro
+    clearCadastro.addEventListener("click",()=>{
+        
+        document.querySelector("#clienteCadastrado").remove();
+                
+    })
+
+
+    //informa a quantidade de clientes cadastrado
+    qtdeCadastro.addEventListener("click",()=>{        
+
+        let clientes = document.querySelectorAll(".nome").length
+        alert("Quantidade de clientes cadastrado: " + clientes)
+
     })

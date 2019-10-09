@@ -93,8 +93,14 @@ let qtdeCadastro = document.querySelector("#btnTarefas")
     //limpa toda lista de cadastro
     clearCadastro.addEventListener("click",()=>{
         
-        document.querySelector("#clienteCadastrado").remove();
-                
+        let clientes = document.getElementsByClassName("cliente");
+    
+        for(let i = 0; i = clientes.length; i++ ){
+
+            document.querySelector(".cliente").remove();
+
+        }
+           
     })
 
 
